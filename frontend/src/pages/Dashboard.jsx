@@ -22,7 +22,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       
-      {/* --- DESKTOP NAVBAR (Flat design) --- */}
       <nav className="hidden lg:flex items-center justify-between bg-white px-10 py-4 border-b border-slate-100 sticky top-0 z-30">
         <div className="flex items-center space-x-8">
           <h2 className="text-2xl font-black text-blue-600 tracking-tighter">RoboKalm</h2>
@@ -41,10 +40,6 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* --- MOBILE HEADER --- 
-          FIXED: Removed border-radius from the top/sides. 
-          Only rounded-b-[40px] creates the bottom curve.
-      */}
       <header className="lg:hidden bg-[#1E6B45] p-8 pb-20 text-white w-full rounded-none rounded-b-[45px]">
         <div className="flex justify-between items-center mb-10">
           <button onClick={handleLogout} className="bg-white/10 p-3.5 rounded-xl">
@@ -62,10 +57,6 @@ const Dashboard = () => {
         </div>
       </header>
 
-      {/* --- MAIN CONTENT GRID --- 
-          FIXED: Removed inner card shadows and border-spaces.
-          Dashboard grid now sits on a clean white background.
-      */}
       <main className="px-6 md:px-12 lg:px-20 -mt-10 lg:mt-0 flex-1 py-10 bg-white">
         <div className="bg-white rounded-t-[40px] lg:rounded-none p-6 md:p-10 lg:p-0">
           <h2 className="text-xl md:text-2xl font-black text-slate-800 mb-8 uppercase tracking-widest">Dashboard</h2>

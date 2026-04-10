@@ -11,7 +11,8 @@ const Login = () => {
     e.preventDefault();
     const endpoint = isLogin ? 'login' : 'register';
     try {
-      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, formData);
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      const res = await axios.post(`${API_BASE_URL}/api/auth/${endpoint}`, formData);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userName', res.data.name);
       localStorage.setItem('userPhone', res.data.phone);
@@ -25,7 +26,6 @@ const Login = () => {
     <div className="min-h-screen bg-[#F0F7FF] flex flex-col items-center justify-center p-6">
       <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl w-full max-w-md text-center border-8 border-blue-50">
         
-        {/* Robot Image Container */}
         <div className="relative w-32 h-32 mx-auto mb-6 bg-blue-50 rounded-full flex items-center justify-center">
           <img 
             src="/robot.png" 

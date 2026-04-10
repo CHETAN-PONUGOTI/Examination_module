@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 exports.register = async (req, res) => {
     try {
         const { name, phone, password } = req.body;
-        // Check if user exists
         const exists = await User.findOne({ phone });
         if (exists) return res.status(400).json({ message: "Phone number already registered!" });
 
@@ -19,7 +18,6 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     const { phone, password } = req.body;
-    // Flexible login: Check if the 'phone' input matches either the name or phone field
     const user = await User.findOne({ 
         $or: [{ phone: phone }, { name: phone }] 
     });

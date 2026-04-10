@@ -31,12 +31,13 @@ const Exam = () => {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/exam/submit', 
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      await axios.post(`${API_BASE_URL}/api/exam/submit`, 
         { answers, questions },
         { headers: { Authorization: `Bearer ${token}` }}
       );
       navigate('/results');
-    } catch (err) {
+    } catch {
       alert("Submission failed!");
     }
   };
